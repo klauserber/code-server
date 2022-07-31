@@ -103,6 +103,11 @@ spec:
             - name: http
               containerPort: 8080
               protocol: TCP
+            {{- range .Values.extraContainerPorts }}
+            - name: {{ .name }}
+              containerPort: {{ .containerPort }}
+              protocol: {{ .protocol }}
+            {{- end }}
           livenessProbe:
             httpGet:
               path: /

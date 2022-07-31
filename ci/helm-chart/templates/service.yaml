@@ -14,6 +14,13 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
+    {{- range .Values.extraServicePorts }}
+    - port: {{ .port }}
+      targetPort: {{ .targetPort }}
+      protocol: {{ .protocol }}
+      name: {{ .name }}
+    {{- end }}
+
   selector:
     app.kubernetes.io/name: {{ include "code-server.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}

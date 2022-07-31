@@ -168,3 +168,14 @@ extraConfigmapMounts: []
   #   subPath: certificates.crt # (optional)
   #   configMap: certs-configmap
   #   readOnly: true
+
+extraContainerPorts: []
+  # - name: ssh
+  #   containerPort: 22
+  #   protocol: TCP
+
+extraServicePorts: []
+  # - port: 22
+  #   targetPort: ssh
+  #   protocol: TCP
+  #   name: ssh
